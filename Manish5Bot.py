@@ -35,17 +35,20 @@ helpMessage ="""╔═════════════
 ║𖤓≛≛≛≛≛≛≛≛≛≛≛≛≛≛𖤓
 ║𖤓Mྂeྂnྂuྂ fྂoྂrྂ  Pྂuྂbྂlྂiྂcྂ𖤓
 ║╔════════════
-║╠⚫️Adminlist
-║╠⚫️Ownerlist
-║╠⚫Info Group
-║╠⚫️Welcome
-║╠⚫️Creator
-║╠⚫️Bot
-║╠⚫️You
-║╠⚫️Please
-║╠⚫️Lol
-║╠⚫️Welcome
-║╠⚫️Angry sticker
+║╠⚫️⭐️Staff list
+║╠⚫️⭐️Ownerlist
+║╠⚫⭐️Info Group
+║╠⚫️⭐️Welcome
+║╠⚫️⭐️Creator
+║╠⚫️⭐️Bot
+║╠⚫️⭐️You
+║╠⚫️⭐️Please
+║╠⚫️⭐️Lol
+║╠⚫️⭐️Welcome
+║╠⚫️⭐️Angry sticker
+║╠⚫️⭐️Manish Ping
+║╠⚫️⭐️Manish Google
+║╠⚫️⭐️Cv say gn
 ║╚════════════
 ║𖤓Mྂeྂnྂuྂ Fྂoྂrྂ Aྂdྂmྂiྂnྂ𖤓
 ║╔════════════
@@ -76,20 +79,26 @@ helpMessage ="""╔═════════════
 ║╚════════════
 ║𖤓Mྂeྂnྂuྂ Fྂoྂrྂ Oྂwྂnྂeྂrྂ𖤓
 ║╔════════════
-║╠[🔴]Admin add@
+║╠[🔴]Staff add@
 ║╠[🔵]Cancel On/Off
 ║╠[🔴]Join On/Off
 ║╠[🔵]Add On/Off
 ║╠[🔴]Nk @(kick)
-║╠[🔵]Remove Admin @
-║╠[🔴]Gn (Grp name)
+║╠[🔵]Remove Staff @
+║╠[🔴]Change Group Name
 ║╠[🔵]Bot
-║╠[🔵]Owner Tag
+║╠[🔴]Owner Tag
+║╠[🔵]Manish Like
+║╠[🔴]Manish Google
+║╠[🔵]Kill
+║╠[🔴]Message
+║╠[🔵]Message add:
+║╠[🔴]Message change:
 ║╚════════════
 ║𖤓≛≛≛≛≛≛≛≛≛≛≛≛≛≛𖤓
 ║👑🔷▶🇲αníѕ🇭◀👑
 ║𖤓≛≛≛≛≛≛≛≛≛≛≛≛≛≛𖤓
-╚═════════════"""
+╚═════════════\nhttp://line.me/R/ti/p/%40ory8259i"""
 KAC=[cl,ki,kk,kc,ks]
 #DEF1=[ki,kk,kc,ks,ka,kb,ko,ke,ku] Udah Ga Kepake(Boleh di apus)
 #DEF2=[cl,kk,kc,ks,ka,kb,ko,ke,ku] Udah Ga Kepake(Boleh di apus)
@@ -108,7 +117,7 @@ Cmid = kc.getProfile().mid #Ussop
 Dmid = ks.getProfile().mid #Chooper
 
 Bots=[mid,Amid,Bmid,Cmid,Dmid]
-admin=["u33e548be611b2ff1b8b7bdbcfea139f3","u18f105537cc9bb9e1801bcf7a36be11f"] 
+admin=["u33e548be611b2ff1b8b7bdbcfea139f3"] 
 owner=["u33e548be611b2ff1b8b7bdbcfea139f3"]
 wait = {
     'contact':False,
@@ -414,7 +423,7 @@ def bot(op):
                     cl.sendText(msg.to,msg.text)
             elif msg.text is None:
                 return
-            elif msg.text in ["Key","help","Help","manish help","Manish Help"]:
+            elif msg.text in ["manish help","Manish Help","Manish help","MANISH HELP"]:
                 if wait["lang"] == "JP":
                     cl.sendText(msg.to,helpMessage)
                 else:
@@ -425,11 +434,11 @@ def bot(op):
                     cl.sendText(msg.to,Setgroup)
                 else:
                     cl.sendText(msg.to,Sett)
-            elif ("Gn " in msg.text):
+            elif ("Change Group Name " in msg.text):
               if msg.from_ in admin:
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
-                    X.name = msg.text.replace("Gn ","")
+                    X.name = msg.text.replace("Change Group Name ","")
                     cl.updateGroup(X)
                 else:
                     cl.sendText(msg.to,"It can't be used besides the group.")
@@ -494,10 +503,10 @@ def bot(op):
                 kc.findAndAddContactsByMid(midd)
                 kc.inviteIntoGroup(msg.to,[midd])
     #--------------- SC Add Admin ---------
-            elif "Admin add @" in msg.text:
+            elif "Staff add @" in msg.text:
               if msg.from_ in owner:
                 print "[Command]Staff add executing"
-                _name = msg.text.replace("Admin add @","")
+                _name = msg.text.replace("Staff add @","")
                 _nametarget = _name.rstrip('  ')
                 gs = cl.getGroup(msg.to)
                 gs = ki.getGroup(msg.to)
@@ -514,7 +523,7 @@ def bot(op):
                    for target in targets:
                         try:
                             admin.append(target)
-                            cl.sendText(msg.to,"ADMIN ADDED  😘")
+                            cl.sendText(msg.to,"Welcome new Staff 😘")
                         except:
                             pass
                 print "[Command]Staff add executed"
@@ -522,10 +531,10 @@ def bot(op):
                 cl.sendText(msg.to,"Manish Bots Network loading...")
                 cl.sendText(msg.to,"Manish The Owner")
                 
-            elif "Admin remove @" in msg.text:
+            elif "Staff remove @" in msg.text:
               if msg.from_ in owner:
                 print "[Command]Staff remove executing"
-                _name = msg.text.replace("Admin remove @","")
+                _name = msg.text.replace("Staff remove @","")
                 _nametarget = _name.rstrip('  ')
                 gs = cl.getGroup(msg.to)
                 gs = ki.getGroup(msg.to)
@@ -542,7 +551,7 @@ def bot(op):
                    for target in targets:
                         try:
                             admin.remove(target)
-                            cl.sendText(msg.to,"Admin added")
+                            cl.sendText(msg.to,"New Staff added")
                         except:
                             pass
                 print "[Command]Staff remove executed"
@@ -550,14 +559,14 @@ def bot(op):
                 cl.sendText(msg.to,"Manish is offline")
                 cl.sendText(msg.to,"Kingo Manish.")
                 
-            elif msg.text in ["Adminlist","adminlist"]:
+            elif msg.text in ["Stafflist","Staff list","staff list","Stafflist"]:
               if admin == []:
                   cl.sendText(msg.to,"The stafflist is empty")
               else:
-                  cl.sendText(msg.to,"Loading...Adminlist")
-                  mc = "||Admin MANISH POWER Bot||\n========☢️☢️☢️☢️☢️☢️☢️☢️=======\n"
+                  cl.sendText(msg.to,"Staff list Initializing..............")
+                  mc = "|⭐️|Staffs In Manish Bots|⭐️|\n⭐️══════⭐️══════⭐️\n"
                   for mi_d in admin:
-                      mc += "••>" +cl.getContact(mi_d).displayName + "\n"
+                      mc += "➡️" +cl.getContact(mi_d).displayName + "\n"
                   cl.sendText(msg.to,mc)
                   print "[Command]Stafflist executed"
     #--------------------------------------
@@ -616,7 +625,7 @@ def bot(op):
                     profile = ks.getProfile()
                     profile.statusMessage = string
                     ks.updateProfile(profile)
-                    cl.sendText(msg.to,"Bio berubah menjadi " + string + "")
+                    cl.sendText(msg.to,"Bio Updated" + string + "")
     #--------------=Finish=----------------
     #--------------= SC Ganti nama Owner=--------------
             elif "Myname:" in msg.text:
@@ -626,7 +635,7 @@ def bot(op):
                     profile = cl.getProfile()
                     profile.displayName = string
                     cl.updateProfile(profile)
-                    cl.sendText(msg.to,"Update Name Menjadi : " + string + "")
+                    cl.sendText(msg.to,"Updated Name : " + string + "")
     #-------------- copy profile----------
             elif "Spam: " in msg.text:
               if msg.from_ in admin:
@@ -640,12 +649,12 @@ def bot(op):
                        for x in range(jmlh):
                            cl.sendText(msg.to, teks)
                     else:
-                       cl.sendText(msg.to, "Kelebihan batas:v")
+                       cl.sendText(msg.to, "Done:v")
                 elif txt[1] == "off":
                     if jmlh <= 300:
                         cl.sendText(msg.to, tulisan)
                     else:
-                        cl.sendText(msg.to, "Kelebihan batas :v")
+                        cl.sendText(msg.to, "Manish bot :v")
     #-----------------=Selesai=------------------
             elif msg.text in ["Bot?","Bot?"]: #Ngirim Semua Kontak Bot
               if msg.from_ in admin:
@@ -889,7 +898,7 @@ def bot(op):
                       QR = "Close"
                     else:
                       QR = "Open"
-                    random.choice(KAC).sendText(msg.to,"[Group Name]\n" + "[•]" + str(ginfo.name) + "\n\n[Group ID]\n" + msg.to + "\n\n[Group Creator]\n" + "[•]" + gCreator + "\n\n[Group Status]\n" + "[•]Status QR =>" + QR + "\n\n[Group Picture]\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus + "\n\nMembers:" + str(len(ginfo.members)) + "\nPending:" + sinvitee)
+                    random.choice(KAC).sendText(msg.to,"[Group Name]\n" + "➡️" + str(ginfo.name) + "\n\n[Group ID]\n" + msg.to + "\n\n[Group Creator]\n" + "➡️" + gCreator + "\n\n[Group Status]\n" + "➡️Status QR =>" + QR + "\n\n[Group Picture]\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus + "\n\nMembers:" + str(len(ginfo.members)) + "\nPending:" + sinvitee)
                   else:
                     random.choice(KAC).sendText(msg.to,"[Group Name]\n" + str(ginfo.name) + "\n\n[Group ID]\n" + msg.to + "\n\n[Group Creator]\n" + gCreator + "\n\n[Group Status]\nGroup Picture:\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus)
                 else:
@@ -1249,7 +1258,7 @@ def bot(op):
                         cl.sendText(msg.to,"è¦�äº†å…³æ–­ã€‚")
             elif msg.text in ["Status","Set"]:
               if msg.from_ in admin:
-                md="\n⭐️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫▶Status◀️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️⭐️\n"
+                md="\n══[⭐]◾️Status◾️[⭐️]═══\n"
                 if wait["Protectgr"] == True: md+="➡️Protect QR [On]\n"
                 else: md+="➡️Protect QR [Off]\n"
                 if wait["Protectcancl"] == True: md+="➡️Protect Invite [On]\n"
@@ -1267,7 +1276,7 @@ def bot(op):
                 if wait["autoAdd"] == True: md+="➡️Auto Add [On]\n"
                 else:md+="➡️Auto Add [Off]\n"
                 if wait["commentOn"] == True: md+="➡️Comment [On]\n"
-                else:md+="➡️Comment [Off]\n⭐️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️⭐️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️▫️⭐️"
+                else:md+="➡️Comment [Off]\n⭐️══════⭐️══════⭐️\nhttp://line.me/R/ti/p/%40ory8259i"
                 cl.sendText(msg.to,md)
             elif "album merit " in msg.text:
                 gid = msg.text.replace("album merit ","")
@@ -1520,7 +1529,7 @@ def bot(op):
                     profile = kc.getProfile()
                     profile.displayName = wait["cName4"] + nowT
                     kc.updateProfile(profile)
-                    kc.sendText(msg.to,"Jam Selalu On")
+                    kc.sendText(msg.to,"Jam On")
             elif msg.text in ["Jam off"]:
               if msg.from_ in admin:
                 if wait["clock"] == False:
@@ -1580,7 +1589,7 @@ def bot(op):
                                 chiya += rom[1] + "\n"
                         cl.sendText(msg.to, "||Chat Readers||%s\n||By : MANISH BOT||\n\n>Readers Point<\n%s-=🔷=-\n•MANISH⏩2\n•MANISH⏩3\n•MANISH⏩4\n•MANISH⏩5\n\RAB SAB NU KHUS RAKHE\n[%s]" % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
                     else:
-                        cl.sendText(msg.to, "MANISH CREATIONS READ POINT\nFor Checking Readers\n♪")
+                        cl.sendText(msg.to, "👉Text Readers point \nThen Text Check Readers\n♪To know Readers")
 #-----------------------------------------------
 
 #-----------------------------------------------
@@ -1735,7 +1744,7 @@ def bot(op):
     #-------------Fungsi Leave Group Finish---------------#
     
     #-------------Fungsi Tag All Start---------------#
-            elif msg.text in ["Tag all","Tagall"]:
+            elif msg.text in ["Tag all","Tagall","manish tag","Manish Tag all"]:
             	 if msg.from_ in admin:
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
@@ -1763,7 +1772,7 @@ def bot(op):
                   except Exception as error:
                       print error
     #-------------Fungsi Tag All Finish---------------#
-            elif msg.text in ["Bot Like", "Bot like"]: #Semua Bot Ngelike Status Akun Utama
+            elif msg.text in ["Bot Like", "Bot like","Manish Like"]: #Semua Bot Ngelike Status Akun Utama
               if msg.from_ in owner:
                 print "[Command]Like executed"
                 cl.sendText(msg.to,"Auto Like Start up\nPowerd By Manish AutoBots")
@@ -2017,7 +2026,7 @@ def bot(op):
                 h = ""
                 for i in gids:
                   #####gn = cl.getGroup(i).name
-                  h += "[•]%s Member\n" % (cl.getGroup(i).name   +"👉"+str(len(cl.getGroup(i).members)))
+                  h += "➡️%s Member\n" % (cl.getGroup(i).name   +"👉"+str(len(cl.getGroup(i).members)))
                   cl.sendText(msg.to,"=======[List Group]======\n"+ h +"Total Group :"+str(len(gids)))
                 
             elif msg.text in ["LG2"]: #Melihat List Group + ID Groupnya (Gunanya Untuk Perintah InviteMeTo:)
@@ -2061,35 +2070,35 @@ def bot(op):
                 kc.sendText(msg.to,"i am awesome and you? 🎶")
             elif msg.text in ["@👑🔷▶🇲αníѕ🇭◀🔷👑 "]:
                 ki.sendText(msg.to,"Don't Tag My Creator😒😒😒")
-                kk.sendText(msg.to,"Creators Tag🙄")
+                kk.sendText(msg.to,"Creators Tag🙄\n Don't Tag👑🔷▶🇲αníѕ🇭◀🔷👑  ")
                 kc.sendText(msg.to," 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say gn","Bobo dulu ah"]:
+            elif msg.text in ["Cv say gn","Manish gn"]:
                 ki.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say chomel pekok"]:
-                ki.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-                kk.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-                kc.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
+            elif msg.text in ["Manish Google"]:
+                ki.sendText(msg.to,"https://www.google.co.in/")
+                kk.sendText(msg.to,"Lunch Google")
+                kc.sendText(msg.to,"http://line.me/R/ti/p/%40ory8259i")
             elif msg.text in ["#welcome"]:
                 ki.sendText(msg.to,"welcome to this group dear")
                 kk.sendText(msg.to,"welcome from Manish")
 #-----------------------------------------------
-            elif msg.text in ["PING","Ping","ping"]:
+            elif msg.text in ["PING","Ping","ping","Manish Ping","manish ping"]:
                 ki.sendText(msg.to,"PONG 􀨁􀄻double thumbs up􏿿􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"PONG 􀨁􀄻double thumbs up􏿿􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"PONG 􀨁􀄻double thumbs up􏿿􀜁􀅔Har Har􏿿")
 #-----------------------------------------------
 
        #-------------Fungsi Respon Start---------------------#
-            elif msg.text in ["Absen","manish on","Manish On","Respon"]:
+            elif msg.text in ["Manish Respon","manish on","Manish On","Respon"]:
               if msg.from_ in admin:
-                cl.sendText(msg.to,"MANISH⬜️1▫️On")
-                ki.sendText(msg.to,"MANISH⬜️⬜️2▫️▪On")
-                kk.sendText(msg.to,"MANISH⬜️⬜️⬜️3▫️▪▫️On")
-                kc.sendText(msg.to,"MANISH⬜️⬜️⬜️⬜️4▫️▪▫️▪On")
-                ks.sendText(msg.to,"Refreshing MANISH-BOTS\nPower Up")
-                cl.sendText(msg.to,"MANISH-AUTOBOTS-LOADING....\ Protect Group\nGroup is under protection")
+                cl.sendText(msg.to,"")
+                ki.sendText(msg.to,"Yes Sir")
+                kk.sendText(msg.to,"Group is Under Protection")
+                kc.sendText(msg.to,"Manish Bots Updating....................")
+                ks.sendText(msg.to,"Refreshing AlL Bots\nPower Up")
+                cl.sendText(msg.to,"Manish Auto bots Responding\nGroup is Protected By Manish\nGroup is under protection")
       #-------------Fungsi Respon Finish---------------------#
                             
 
@@ -2103,9 +2112,9 @@ def bot(op):
             elif msg.text in ["Speed","Sp"]:
               if msg.from_ in admin:
                 start = time.time()
-                cl.sendText(msg.to, "MANISH autobots Speed Loading....⏳⌛⏳⌛")
+                cl.sendText(msg.to, "Bot Speed Loading....⏳⌛⏳⌛.....")
                 elapsed_time = time.time() - start
-                cl.sendText(msg.to, "%sDetik" % (elapsed_time))
+                cl.sendText(msg.to, "%sManish Bot Network Speed" % (elapsed_time))
       #-------------Fungsi Speedbot Finish---------------------#
 
       #-------------Fungsi Banned Send Contact Start------------------#
@@ -2127,9 +2136,9 @@ def bot(op):
             elif msg.text in ["Creator"]:
               msg.contentType = 13
               msg.contentMetadata = {'mid': 'u33e548be611b2ff1b8b7bdbcfea139f3'}
-              cl.sendText(msg.to,"⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️")
+              cl.sendText(msg.to,"⭐️════════════⭐️════════════⭐️")
               cl.sendMessage(msg)
-              cl.sendText(msg.to,"⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️⚫️")
+              cl.sendText(msg.to,"⭐️════════════⭐️════════════⭐️")
               cl.sendText(msg.to,"👑🔷▶🇲αníѕ🇭◀🔷👑 ")
                 
       #-------------Fungsi Chat ----------------
@@ -2237,8 +2246,8 @@ def bot(op):
               if Name in wait2['readMember'][op.param1]:
                  pass
               else:
-                wait2['readMember'][op.param1] += "\n[•]" + Name
-                wait2['ROM'][op.param1][op.param2] = "[•]" + Name
+                wait2['readMember'][op.param1] += "\n➡️" + Name
+                wait2['ROM'][op.param1][op.param2] = "➡️" + Name
             else:
               cl.sendText
           except:
@@ -2250,12 +2259,12 @@ def bot(op):
           ginfo = cl.getGroup(op.param1)
           random.choice(KAC).sendText(op.param1, "Welcome To" + str(ginfo.name))
           random.choice(KAC).sendText(op.param1, "Founder Of This Group : " + str(ginfo.name) + " :\n" + ginfo.creator.displayName)
-          random.choice(KAC).sendText(op.param1,"Welcome Dear😊\nManish auto bots")
+          random.choice(KAC).sendText(op.param1,"Welcome")
           print "MEMBER HAS JOIN THE GROUP"
         if op.type == 15:
           if op.param2 in Bots:
              return
-          random.choice(KAC).sendText(op.param1, "Bye dear🙁")
+          random.choice(KAC).sendText(op.param1, "Bye dear🙁\Take care😘")
           print "MEMBER HAS LEFT THE GROUP"
 #------------------------
         if op.type == 59:
